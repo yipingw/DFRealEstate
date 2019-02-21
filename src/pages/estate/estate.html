@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>物业费</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <button *ngIf="!openId" ion-button full color="{{socialProvider == 0 ? 'secondary' : 'primary'}}" (click)="authClick()">登录</button>
+    <div *ngIf="selectedRoom">
+        <ion-list>
+            <room-selector roomId="{{roomId}}" (onRoomChange)="roomChange($event[0])"></room-selector>
+            <ion-item>
+                当前欠费金额
+                <span item-right>￥{{selectedRoom.cost_amount}}</span>
+            </ion-item>
+            <ion-item>
+                账户余额
+                <span item-right>￥{{selectedRoom.balance}}</span>
+            </ion-item>
+            <ion-item>
+                上次缴费截止月份
+                <span item-right>{{selectedRoom.last_bill_date}}</span>
+            </ion-item>
+            <ion-item>
+                本次缴费截止月份
+                <span item-right>{{selectedRoom.bill_date}}</span>
+            </ion-item>
+            <ion-item>
+                <ion-label item-left>本次缴交</ion-label>
+                <ion-input type="tel" [(ngModel)]="selectedRoom.bill_date_num" #billdatenum (ngModelChange)="billDateNumChange(billdatenum.value)" item-right></ion-input>
+                <span item-right>个月</span>
+            </ion-item>
+            <ion-item>
+                缴费金额
+                <span item-right>￥{{selectedRoom.money}}</span>
+            </ion-item>
+        </ion-list>
+        <button ion-button full color="{{socialProvider == 0 ? 'secondary' : 'primary'}}" (click)="createOrder()">立即缴费</button>
+
+    </div>
+
+</ion-content>

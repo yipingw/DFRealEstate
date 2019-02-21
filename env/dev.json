@@ -1,0 +1,11 @@
+{
+  "enableLogging": true,
+  "host": "\"http://localhost:8100\"",
+  "dffdcAPIUrl": "",
+  "dffdcAlipayAPIUrl": "",
+  "wechatAPIUrl": "",
+  "alipayAPIUrl": "",
+  "wechatAppId": "",
+  "alipayAppId": "",
+  "isProd": false
+}
